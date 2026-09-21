@@ -10,6 +10,7 @@
       }
     </script>
 
+    <!-- Babel Standalone -->
     <script src="https://unpkg.com/@babel/standalone@latest/babel.min.js"></script>
   </head>
 
@@ -17,17 +18,21 @@
     <div id="app"></div>
 
     <script type="text/babel" data-type="module" data-presets="react">
-      import React from 'react';
-      import { createRoot } from 'react-dom/client';
+      import React from "react";
+      import { createRoot } from "react-dom/client";
 
-      const domNode = document.getElementById('app');
+      const domNode = document.getElementById("app");
 
       function Header({ title }) {
-        return <h1>{title}</h1>;
+        return <h1>{title ? title : "Default title"}</h1>;
       }
 
       function HomePage() {
-        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+        const names = [
+          "Ada Lovelace",
+          "Grace Hopper",
+          "Margaret Hamilton"
+        ];
 
         const [likes, setLikes] = React.useState(0);
 
@@ -45,9 +50,7 @@
               ))}
             </ul>
 
-            <button onClick={handleClick}>
-              Likes ({likes})
-            </button>
+            <button onClick={handleClick}>Like ({likes})</button>
           </div>
         );
       }
